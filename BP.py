@@ -8,19 +8,19 @@ This is a temporary script file.
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
+#import matplotlib.dates as mdates
 from matplotlib.dates import DateFormatter
-import plotly.graph_objects as go
-import plotly.express as px
+#import plotly.graph_objects as go
+#import plotly.express as px
 import seaborn as sns
-import datetime
+#import datetime
 import streamlit as st
 from PIL import Image
 
 
 # import BPs
-p_data = '/home/patdol28/IceCloud/Coding/2023_Summer/Projects/BP/data/BP_Log.csv'
-p_img = '/home/patdol28/IceCloud/Coding/2023_Summer/Projects/BP/data/BP_ranges.png'
+p_data = 'BP_Log.csv'
+p_img = 'BP_ranges.png'
 
 df = pd.read_csv(p_data)
 df = df[~df['BP1'].isna()]

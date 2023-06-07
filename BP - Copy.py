@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 #import matplotlib.dates as mdates
 from matplotlib.dates import DateFormatter
 #import plotly.graph_objects as go
-import plotly.express as px
+#import plotly.express as px
 import seaborn as sns
 #import datetime
 import streamlit as st
@@ -179,8 +179,6 @@ if add_sidebar == 'Summary':
     ax.set_xlabel('')
     st.pyplot(fig)
 
-    bp_series['Date'] = pd.to_datetime(bp_series['Date'])
-
 
 # summary 60 days seaborn
     st.markdown('---')
@@ -198,35 +196,8 @@ if add_sidebar == 'Summary':
     plt.rcParams['font.size'] = 18
     ax.set_xlabel('')
     st.pyplot(fig)
-# Trending Chart
-    st.markdown('---')  
-    st.markdown('##### All Days Trending')
-    p = px.scatter(bp_series, x='Date', y=['Systolic', 'Diastolic'], trendline="ols", labels={
-                     "value": " ",
-                     "Date": " ",
-                     "variable": " "
-                 })
-    st.plotly_chart(p)
     
-# Histograms
-    st.markdown('---')
-    all_days = bp_series.groupby('Date').count().shape[0]
-    all_tests = bp_series.shape[0]
-    st.markdown(f"#### Distributions for {all_days} days ({all_tests} tests)")
-#   ch1, ch2 = st.columns(2)
-    fig, ax = plt.subplots(figsize=(20, 10))
-    sns.histplot(data=bp_series, x='Systolic', kde=False, stat="density")
-    sns.kdeplot(data=bp_series['Systolic'], color='r', lw=4)
-    ax.set_xlabel('Systolic')
-    ax.set_ylabel('Density')
-    st.pyplot(fig)
-
-    fig, ax = plt.subplots(figsize=(20, 10))
-    sns.histplot(data=bp_series, x='Diastolic', kde=False, stat="density")
-    sns.kdeplot(data=bp_series['Diastolic'], color='r', lw=4)
-    ax.set_xlabel('Diastolic')
-    ax.set_ylabel('Density')
-    st.pyplot(fig)
+    st.markdown('---')  
 
 
 if add_sidebar == 'Analysis':

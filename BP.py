@@ -2,7 +2,7 @@
 """
 Spyder Editor
 
-This is a temporary script file.
+BP Trend
 """
 
 import numpy as np
